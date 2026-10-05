@@ -65,9 +65,23 @@ body {
 
 .pokemon-image {
     position: absolute;
-    z-index: 10; /* Isso é o que faz o GIF ficar POR CIMA da Pokedex! */
-    top: 36%;  /* Ajuste vertical para ficar dentro da tela */
-    left: 45%; /* Ajuste horizontal para ficar dentro da tela */
-    transform: translate(-50%, -50%); /* Centraliza perfeitamente */
-    height: 20%; /* Controla o tamanho do pokemon */
+    z-index: 10;
+    bottom: 55%;
+    left: 50%;
+    height: 16%;
+    transform: translate(-30%, 50%);
+}
+
+.pokemon-data {
+    position: absolute;
+    z-index: 10;
+    top: 55%; /* Ajuste para cima ou para baixo */
+    left: 45%; /* Ajuste para os lados */
+    transform: translate(-50%, -50%);
+    color: #333; /* Cor do texto */
+    font-size: 1.2rem; /* Tamanho da fonte */
+}
+
+.pokemon-number {
+    z-index: 10;
 }
