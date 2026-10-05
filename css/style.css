@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat', sans-serif;
+}
+
+body {
+    text-align: center;
+    background: linear-gradient(to bottom, #292929, #353535 );
+    min-height: 100vh;
+}
+
+.pokedex-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 2%;
+    width: 100%;
+    position: relative;
+}
+
+.pokedex-half, .pokedex-left-container {
+    width: 50%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    position: relative;
+}
+
+.pokedex-left-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.pokedex-left-container .pokedex-half {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+}
+
+@media (max-width: 628px) {
+    body {
+        overflow: hidden;
+    }
+
+    .pokedex-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        height: 100vh;
+    }
+
+    .pokedex-half, .pokedex-left-container {
+        max-height: 48vh;
+        width: auto;
+        max-width: 95%;
+    }
+}
+
+.pokemon-image {
+    position: absolute;
+    z-index: 10; /* Isso é o que faz o GIF ficar POR CIMA da Pokedex! */
+    top: 36%;  /* Ajuste vertical para ficar dentro da tela */
+    left: 45%; /* Ajuste horizontal para ficar dentro da tela */
+    transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+    height: 20%; /* Controla o tamanho do pokemon */
+}
