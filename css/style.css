@@ -21,7 +21,7 @@ body {
     position: relative;
 }
 
-.pokedex-half, .pokedex-left-container {
+.pokedex-half, .pokedex-left-container, .pokedex-right-container {
     width: 50%;
     max-width: 350px;
     height: auto;
@@ -36,7 +36,7 @@ body {
     position: relative;
 }
 
-.pokedex-left-container .pokedex-half {
+.pokedex-left-container .pokedex-half, .pokedex-right-container .pokedex-half {
     width: 100%;
     max-width: 100%;
     max-height: 100%;
@@ -56,7 +56,7 @@ body {
         height: 100vh;
     }
 
-    .pokedex-half, .pokedex-left-container {
+    .pokedex-half, .pokedex-left-container, .pokedex-right-container {
         max-height: 48vh;
         width: auto;
         max-width: 95%;
@@ -72,16 +72,83 @@ body {
     transform: translate(-30%, 50%);
 }
 
+.pokemon-shadow {
+    position: absolute;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.29);
+    width: 18%;
+    height: 4%;
+    bottom: 45%;
+    left: 43.5%;
+}
+
+.pokemon-shadow::before,
+.pokemon-shadow::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.29);
+    left: 6px;
+    width: 44px;
+    height: 4px;
+}
+.pokemon-shadow::before {
+    top: -4px;
+}
+.pokemon-shadow::after {
+    bottom: -4px;
+}
+
 .pokemon-data {
     position: absolute;
     z-index: 10;
-    top: 55%; /* Ajuste para cima ou para baixo */
-    left: 45%; /* Ajuste para os lados */
-    transform: translate(-50%, -50%);
-    color: #333; /* Cor do texto */
-    font-size: 1.2rem; /* Tamanho da fonte */
+    top: 57%;
+    left: 45%;
+    transform: translate(-20%, 220%);
+    color: #555555;
+    font-size: clamp(2px, 1.6vw, 11px);
 }
 
 .pokemon-number {
     z-index: 10;
+    color: #8a8989;
+    font-family: 'Press Start 2P';
+}
+
+.pokemon-name {
+    z-index: 10;
+    text-transform: capitalize;
+    font-family: 'Press Start 2P';
+}
+
+.form {
+    z-index: 10;
+    position: absolute;
+    width: 75%;
+    top: 33%;
+    left: 15%;
+}
+
+.input-search {
+    width: 70%;
+    padding: 3%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-family: 'Press Start 2P';
+    font-size: clamp(2px, 1.6vw, 11px);
+    color: #dfdfdf;
+}
+
+.input-search::placeholder {
+    color: #dfdfdf;
+    font-family: 'Press Start 2P';
+    font-size: clamp(2px, 1.6vw, 11px);
+}
+
+.buttons {
+    position: absolute;
+    z-index: 10;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
