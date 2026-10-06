@@ -75,16 +75,16 @@ body {
 .pokemon-data {
     position: absolute;
     z-index: 10;
-    top: 57%;
-    left: 45%;
+    top: 49.9%;
+    left: %;
     transform: translate(-20%, 220%);
-    color: #555555;
+    color: #ececec;
     font-size: clamp(2px, 1.6vw, 11px);
 }
 
 .pokemon-number {
     z-index: 10;
-    color: #8a8989;
+    color: #ececec;
     font-family: 'Press Start 2P';
 }
 
