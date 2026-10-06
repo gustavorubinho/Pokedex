@@ -72,32 +72,6 @@ body {
     transform: translate(-30%, 50%);
 }
 
-.pokemon-shadow {
-    position: absolute;
-    z-index: 9;
-    background-color: rgba(0, 0, 0, 0.29);
-    width: 18%;
-    height: 4%;
-    bottom: 45%;
-    left: 43.5%;
-}
-
-.pokemon-shadow::before,
-.pokemon-shadow::after {
-    content: "";
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.29);
-    left: 6px;
-    width: 44px;
-    height: 4px;
-}
-.pokemon-shadow::before {
-    top: -4px;
-}
-.pokemon-shadow::after {
-    bottom: -4px;
-}
-
 .pokemon-data {
     position: absolute;
     z-index: 10;
@@ -148,7 +122,23 @@ body {
 .buttons {
     position: absolute;
     z-index: 10;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, 0);
+    bottom: 11.6%;
+    left: 27%;
+    width: 53%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(234, 234, 234); 
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 10px
+}
+
+.button:active {
+    scale: 0.95;
 }
