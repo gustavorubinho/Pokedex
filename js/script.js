@@ -1,6 +1,7 @@
 const pokemonName = document.querySelector('.pokemon-name');
 const pokemonNumber = document.querySelector('.pokemon-number');
 const pokemonImage = document.querySelector('.pokemon-image');
+const pokemonTypes = document.querySelector('.pokemon-types');
 
 const form = document.querySelector('.form');
 const input = document.querySelector('.input-search');
@@ -27,11 +28,26 @@ const renderPokemon = async (pokemon) => {
         pokemonName.innerHTML = data.name;
         pokemonNumber.innerHTML = data.id;
         pokemonImage.src = data.sprites.versions['generation-v']['black-white'].animated.front_default;
+        const somDoPokemon = new Audio(data.cries.latest);
+        somDoPokemon.volume = 0.1;
+        somDoPokemon.play();
         input.value = '';
+
+        pokemonTypes.innerHTML = '';
+        data.types.forEach(item => {
+    
+    const urlParts = item.type.url.split('/');
+    const typeId = urlParts[urlParts.length - 2]; 
+    const typeImg = document.createElement('img');
+    typeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-v/black-white/${typeId}.png`;
+    typeImg.className = 'type-icon';
+    pokemonTypes.appendChild(typeImg);
+});
     } else {
         pokemonName.innerHTML = 'Not found';
         pokemonNumber.innerHTML = '';
         pokemonImage.style.display = 'none';
+        pokemonTypes.innerHTML = '';
     }
 }
 

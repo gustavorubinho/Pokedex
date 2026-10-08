@@ -122,7 +122,7 @@ body {
 .buttons {
     position: absolute;
     z-index: 10;
-    bottom: 11.6%;
+    bottom: 14%;
     left: 27%;
     width: 53%;
     display: flex;
@@ -141,4 +141,27 @@ body {
 
 .button:active {
     scale: 0.95;
+}
+
+.btn-prev {
+    position: absolute;
+    left: 3%;
+}
+
+.btn-next {
+    position: absolute;
+    right: 1%;
+}
+
+.pokemon-types {
+    position: absolute;
+    z-index: 10;
+    top: 30.9%;
+    left: 22%; 
+    display: flex; 
+    gap: 5px;
+}
+
+.type-icon {
+    width: 38x;
 }
