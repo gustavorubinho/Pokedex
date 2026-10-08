@@ -75,8 +75,8 @@ body {
 .pokemon-data {
     position: absolute;
     z-index: 10;
-    top: 49.9%;
-    left: %;
+    top: 47.9%;
+    left: 33%;
     transform: translate(-20%, 220%);
     color: #ececec;
     font-size: clamp(2px, 1.6vw, 11px);
