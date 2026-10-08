@@ -2,6 +2,10 @@ const pokemonName = document.querySelector('.pokemon-name');
 const pokemonNumber = document.querySelector('.pokemon-number');
 const pokemonImage = document.querySelector('.pokemon-image');
 const pokemonTypes = document.querySelector('.pokemon-types');
+const btnQuiz = document.querySelector('.btn-quiz');
+
+let modoQuizAtivo = false;
+let pokemonOculto = '';
 
 const form = document.querySelector('.form');
 const input = document.querySelector('.input-search');
@@ -24,6 +28,8 @@ const renderPokemon = async (pokemon) => {
     const data = await fetchPokemon(pokemon);
 
     if (data) {
+        modoQuizAtivo = false; 
+        pokemonImage.classList.remove('quiz-modo-sombra');
         pokemonImage.style.display = 'block';
         pokemonName.innerHTML = data.name;
         pokemonNumber.innerHTML = data.id;
@@ -55,7 +61,22 @@ renderPokemon('7');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    renderPokemon(input.value.toLowerCase());
+    const chute = input.value.toLowerCase();
+    
+    if (modoQuizAtivo) {
+        if (chute === pokemonOculto) {
+            pokemonImage.classList.remove('quiz-modo-sombra');
+            pokemonName.innerHTML = pokemonOculto;
+            
+            modoQuizAtivo = false;
+        } else {
+            alert('Ops! Não é esse. Escute o som e tente de novo!');
+        }
+    } else {
+        pokemonImage.classList.remove('quiz-modo-sombra');
+        renderPokemon(chute);
+    }
+    
     input.value = '';
 });
 
@@ -73,3 +94,23 @@ buttonNext.addEventListener('click', () => {
 });
 
 renderPokemon(searchPokemon);
+
+btnQuiz.addEventListener('click', async () => {
+    modoQuizAtivo = true; 
+    
+    const randomId = Math.floor(Math.random() * 649) + 1;
+    const data = await fetchPokemon(randomId);
+    
+    if (data) {
+        pokemonOculto = data.name;
+        pokemonName.innerHTML = '???';
+        pokemonNumber.innerHTML = '?';
+        document.querySelector('.pokemon-types').innerHTML = '';
+        pokemonImage.style.display = 'block';
+        pokemonImage.src = data.sprites.versions['generation-v']['black-white'].animated.front_default;
+        pokemonImage.classList.add('quiz-modo-sombra');
+        const somDoPokemon = new Audio(data.cries.legacy);
+        somDoPokemon.volume = 0.2;
+        somDoPokemon.play();
+    }
+});
